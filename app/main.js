@@ -9,7 +9,7 @@ const server = net.createServer((connection) => {
   connection.on("data", (data) => {
     connection.write("+PONG\r\n");
 
-    connection.end();
+    // connection.end();
   });
   connection.on("end", () => {
 
