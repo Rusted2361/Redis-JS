@@ -6,7 +6,7 @@ console.log("Logs from your program will appear here!");
 // Uncomment this block to pass the first stage
 const server = net.createServer((connection) => {
   // Handle multiple connection
-  let args = data.toString().toLowerCase().split("\r\n");
+  let args = connection.toString().toLowerCase().split("\r\n");
         console.log(args);
         switch(args[2]){
             case "echo":
@@ -19,7 +19,6 @@ const server = net.createServer((connection) => {
                 break;
             default:
                 console.log("Command not found");
-1
         }
   connection.on("end", () => {
 
