@@ -22,14 +22,14 @@ const server = net.createServer((connection) => {
                 console.log("Set command");
                 map.set(args[4], args[6]);
                 if (args[3]) {
-                    const cmd = args[3].name;
-        
-                    if (cmd.toLowerCase() === 'px') {
-                        const ms = parseInt(args[4].name);
-        
+                    const cmd = args[8];
+                    console.log("cmd",cmd)
+                    if (cmd === 'px') {
+                        const ms = parseInt(args[10]);
+                        console.log("ms",ms);
                         setTimeout(() => {
-                            console.log('delete', key);
-                            map.delete(key);
+                            console.log('delete', args[4]);
+                            map.delete(args[4]);
                         }, ms);
                     }
     1
