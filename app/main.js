@@ -21,6 +21,19 @@ const server = net.createServer((connection) => {
             case "set":
                 console.log("Set command");
                 map.set(args[4], args[6]);
+                if (args[3]) {
+                    const cmd = args[3].name;
+        
+                    if (cmd.toLowerCase() === 'px') {
+                        const ms = parseInt(args[4].name);
+        
+                        setTimeout(() => {
+                            console.log('delete', key);
+                            map.delete(key);
+                        }, ms);
+                    }
+    1
+                }
                 connection.write("+OK\r\n");
                 break;
             case "get":
