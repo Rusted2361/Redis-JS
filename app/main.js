@@ -32,7 +32,7 @@ const server = net.createServer((connection) => {
                             map.delete(args[4]);
                         }, ms);
                     }
-    1
+    
                 }
                 connection.write("+OK\r\n");
                 break;
