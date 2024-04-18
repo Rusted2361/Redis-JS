@@ -20,9 +20,7 @@ const server = net.createServer((connection) => {
                 break;
             case "set":
                 console.log("Set command");
-                const key = args[4]
-                const value = args[6]
-                map.set(key, value);
+                map.set(args[4], args[6]);
                 if (args[3]) {
                     const cmd = args[8];
                     console.log("cmd",cmd)
@@ -30,8 +28,8 @@ const server = net.createServer((connection) => {
                         const ms = parseInt(args[10]);
                         console.log("ms",ms);
                         setTimeout(() => {
-                            console.log('delete', key);
-                            map.delete(key);
+                            console.log('delete', args[4]);
+                            map.delete(args[4]);
                         }, ms);
                     }
     1
