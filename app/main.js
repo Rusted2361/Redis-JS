@@ -44,13 +44,19 @@ const server = net.createServer((connection) => {
                     connection.write(`$${val.length}\r\n${val}\r\n`);
                 }
                 break;
+            case "info":
+                console.log("Info command");
+                if(args[0] === "replication") {
+                    response = formatter.formatBulkString("role:master");
+                }
+1
+                break;
             default:
                 console.log("Command not found");
         }
     });
     console.log("Client connected");
   });
-
   if(process.argv[2] == "--port") {
     server.listen(process.argv[3], "127.0.0.1");
 } else {
